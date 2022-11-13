@@ -1,0 +1,29 @@
+//binary number
+
+#include<stdio.h>
+#include<stdlib.h>
+
+int pow(int a,int b){
+    int prod=1;
+    for(int i=0; i<b; i++){
+        prod=prod*a;
+    }
+    return prod;
+
+}
+
+int counter=-1;
+
+int bin(int num){
+    counter++;
+    int x;
+    if((num%10)==num){return (num*pow(2,counter));}
+    x=num-((num/10)*10);
+    int power=pow(2,counter);
+    return ((x*power)+bin(num/10));
+}
+
+int main(){
+    printf("%d",bin(1111));
+    return 0;
+}
